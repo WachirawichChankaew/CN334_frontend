@@ -5,7 +5,7 @@ import ReusableForm, { FormField } from '../../components/ReusableForm'
 
 export default function CreateAppointmentPage() {
     const router = useRouter()
-
+    
     const appointmentFields: FormField[] = [
         { name: 'idCard', label: 'เลขบัตรประชาชน', type: 'text', required: true },
         { name: 'fullName', label: 'ชื่อ-นามสกุล', type: 'text', required: true },
