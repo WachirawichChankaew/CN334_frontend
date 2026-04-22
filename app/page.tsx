@@ -1,65 +1,63 @@
-import Image from "next/image";
+import Link from 'next/link';
 
-export default function Home() {
+export default function HomeSemanticWithTailwind() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="min-h-screen bg-slate-50 font-sans text-slate-900 flex flex-col">
+      <header className="bg-white border-b border-slate-200 sticky top-0 z-10">
+        <nav aria-label="เมนูหลัก" className="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
+          <h1 className="text-2xl font-bold text-blue-600">TU-PINE Care</h1>
+          <p className="text-slate-500 text-lg">ยินดีต้อนรับสู่แอปพลิเคชั่นอำนวยความสะดวกสำหรับสุขภาพของคุณ</p>
+        </nav>
+      </header>
+
+      <main className="max-w-4xl mx-auto px-6 py-12 flex-grow">
+        <section aria-labelledby="hero-heading" className="text-center mb-16">
+          <h2 id="hero-heading" className="text-4xl font-extrabold mb-4 text-slate-800">
+            ดูแลสุขภาพของคุณได้ง่ายๆ จากที่บ้าน
+          </h2>
+          <p className="text-xl text-slate-600">
+            เลือกบริการที่ต้องการด้านล่างเพื่อเริ่มต้นการดูแลตัวเองวันนี้
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+        </section>
+
+        <nav aria-label="บริการของเรา">
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <li>
+              <article className="h-full">
+                <Link href="/form" className="group block h-full">
+                  <div className="bg-white p-12 rounded-3xl shadow-md border-2 border-transparent hover:border-blue-500 hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center h-full">
+                    <div className="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                      <span className="text-blue-600 text-4xl" aria-hidden="true">📅</span>
+                    </div>
+                    <h3 className="text-3xl font-bold mb-4 text-slate-800">จองคิวนัดแพทย์</h3>
+                    <p className="text-xl text-slate-500">เลือกวันและเวลาที่คุณสะดวกเพื่อพบคุณหมอ</p>
+                  </div>
+                </Link>
+              </article>
+            </li>
+
+            <li>
+              <article className="h-full">
+                <Link href="/chat" className="group block h-full">
+                  <div className="bg-white p-12 rounded-3xl shadow-md border-2 border-transparent hover:border-green-500 hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center h-full">
+                    <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                      <span className="text-green-600 text-4xl" aria-hidden="true">💬</span>
+                    </div>
+                    <h3 className="text-3xl font-bold mb-4 text-slate-800">ปรึกษาคุณหมอ</h3>
+                    <p className="text-xl text-slate-500">พูดคุยสอบถามอาการเบื้องต้นผ่านระบบแชท</p>
+                  </div>
+                </Link>
+              </article>
+            </li>
+          </ul>
+        </nav>
       </main>
+
+      <footer className="py-8 text-center text-slate-400 bg-white border-t border-slate-200 mt-auto">
+        <p>จัดทำโดย [6710742674 Wachirawich Chankeaw] คณะวิศวกรรมศาสตร์ มหาวิทยาลัยธรรมศาสตร์ ศูนย์ รังสิต 99 ม. 18 ต. คลองหนึ่ง อ. คลองหลวง จ. ปทุมธานี 12120 </p>
+      </footer>
     </div>
-  );
+  )
 }
+
+
