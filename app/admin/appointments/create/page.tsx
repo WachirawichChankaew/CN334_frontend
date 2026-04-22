@@ -5,7 +5,7 @@ import ReusableForm, { FormField } from '../../components/ReusableForm'
 
 export default function CreateAppointmentPage() {
     const router = useRouter()
-
+    
     const appointmentFields: FormField[] = [
         { name: 'idCard', label: 'เลขบัตรประชาชน', type: 'text', required: true },
         { name: 'fullName', label: 'ชื่อ-นามสกุล', type: 'text', required: true },
@@ -32,7 +32,7 @@ export default function CreateAppointmentPage() {
 
     const handleCreateAppointment = async (formData: any) => {
         try {
-            const response = await fetch('http://localhost:3340/appointments', {
+            const response = await fetch('${process.env.NEXT_PUBLIC_API_URL}appointments', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
