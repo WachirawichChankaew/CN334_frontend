@@ -25,7 +25,7 @@ export default function CreatePatientPage() {
 
     const handleCreatePatient = async (formData: any) => {
         try {
-            const response = await fetch('http://localhost:3340/patients', {
+            const response = await fetch('${process.env.NEXT_PUBLIC_API_URL}patients', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),

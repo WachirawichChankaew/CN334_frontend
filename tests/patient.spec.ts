@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test('ทดสอบระบบค้นหาคนไข้บนตาราง (ด้วย API Mocking)', async ({ page }) => {
     // 1. ดักจับและปลอมแปลงข้อมูล API (Mocking)
-    await page.route('http://localhost:3340/patients', async route => {
+    await page.route('${process.env.NEXT_PUBLIC_API_URL}patients', async route => {
         const mockData = [
             { id: 1, hn_number: 'HN999', patient_name: 'Robot Tester', exam_date: '2026-03-31', diagnosis: 'Testing' },
             { id: 2, hn_number: 'HN111', patient_name: 'John Doe', exam_date: '2026-04-01', diagnosis: 'Fever' }

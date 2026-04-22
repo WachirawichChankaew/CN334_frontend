@@ -28,7 +28,7 @@ export default function EditPatientPage() {
     // 2. ดึงข้อมูลคนไข้เดิมมาแสดง
     const fetchPatientData = async () => {
         try {
-            const response = await fetch('http://localhost:3340/patients')
+            const response = await fetch('${process.env.NEXT_PUBLIC_API_URL}patients')
             if (response.ok) {
                 const data = await response.json()
                 // ใช้คำสั่ง find() เพื่อหาคนไข้ที่มี ID ตรงกับ URL
@@ -51,7 +51,7 @@ export default function EditPatientPage() {
     // 3. ฟังก์ชันบันทึกการแก้ไข (ยิง API แบบ PUT)
     const handleUpdatePatient = async (formData: any) => {
         try {
-            const response = await fetch(`http://localhost:3340/patients/${patientId}`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}patients/${patientId}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),

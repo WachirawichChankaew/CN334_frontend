@@ -29,7 +29,7 @@ export default function PatientManagementPage() {
 
   const fetchPatients = async () => {
     try {
-      const response = await fetch('http://localhost:3340/patients')
+      const response = await fetch('${process.env.NEXT_PUBLIC_API_URL}patients')
       if (response.ok) {
         // 3. ระบุ Type ให้กับตัวแปร data ที่ได้จากการแปลง JSON
         const data: PatientRecord[] = await response.json()
@@ -77,7 +77,7 @@ export default function PatientManagementPage() {
   const handleDelete = async (item: PatientRecord) => {
     if (confirm(`คุณแน่ใจหรือไม่ที่จะลบข้อมูลของ: ${item.patient_name}?`)) {
       try {
-        const response = await fetch(`http://localhost:3340/patients/${item.id}`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}patients/${item.id}`, {
           method: 'DELETE',
         })
         if (response.ok) {

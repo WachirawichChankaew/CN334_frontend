@@ -19,7 +19,7 @@ export default function LoginPage() {
         };
 
         try {
-            const response = await fetch('http://localhost:3340/login', {
+            const response = await fetch('${process.env.NEXT_PUBLIC_API_URL}login', {
                 method: 'POST',
                 headers: {
                     // 2. เปลี่ยน Content-Type เป็น JSON
